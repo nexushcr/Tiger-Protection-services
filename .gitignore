@@ -1,0 +1,30 @@
+# Dependencias
+node_modules
+package-lock.json
+
+# Build
+dist
+build
+
+# Entorno
+.env
+.env.local
+.env.production
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Java/JDK
+*.jdk
+openJdk-25.jdk
+
+# Logs
+*.log
+npm-debug.log*
