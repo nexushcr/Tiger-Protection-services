@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Facebook, Instagram, ChevronLeft, ChevronRight, Droplets, Shield, Wind, Sparkles, Wrench, Gift, PhoneCall } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, ChevronLeft, ChevronRight, Droplets, Shield, Wind, Sparkles, Wrench, Gift, PhoneCall, X, Image as ImageIcon } from 'lucide-react';
 
 const TigerProtectionWebsite = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [expandedService, setExpandedService] = useState(null);
+  const [lightboxImage, setLightboxImage] = useState(null);
   
-  // Placeholder images for carousel - replace with actual images
+  // Placeholder images for carousel
   const carouselImages = [
     { url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200', alt: 'Water Damage Restoration - Emergency Response', caption: 'Water Damage Restoration' },
     { url: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1200', alt: 'Mold Remediation Services', caption: 'Professional Mold Remediation' },
@@ -17,31 +19,71 @@ const TigerProtectionWebsite = () => {
       title: 'Water Damage Restoration',
       description: 'Rapid response emergency services for water damage incidents. Our specialized team provides comprehensive dry-out solutions, emergency tarping, and storm damage mitigation to prevent structural deterioration, mold growth, and escalating repair costs.',
       icon: <Droplets className="w-8 h-8" />,
-      features: ['Emergency Dry-Out', 'Tarp Installation', 'Storm Damage Response', '24/7 Availability']
+      features: ['Emergency Dry-Out', 'Tarp Installation', 'Storm Damage Response', '24/7 Availability'],
+      gallery: [
+        'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800',
+        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
+        'https://images.unsplash.com/photo-1595814433015-e12f91f8c48e?w=800',
+        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
+        'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800'
+      ]
     },
     {
       title: 'Mold Remediation',
       description: 'Specialized mold elimination and prevention services utilizing professional-grade antimicrobial treatments. Our certified technicians follow strict safety protocols to identify, remove, and thoroughly disinfect contaminated surfaces, restoring your space to safe and healthy conditions.',
       icon: <Shield className="w-8 h-8" />,
-      features: ['Mold Identification', 'Safe Removal', 'Deep Sanitization', 'Preventive Treatment']
+      features: ['Mold Identification', 'Safe Removal', 'Deep Sanitization', 'Preventive Treatment'],
+      gallery: [
+        'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800',
+        'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800',
+        'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800',
+        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800'
+      ]
     },
     {
       title: 'Shrink Wrap Protection',
       description: 'Industrial-strength temporary enclosure systems providing hermetic protection against water infiltration, environmental contamination, and further damage. High-resistance materials professionally installed on roofs, walls, and exposed structures during restoration processes.',
       icon: <Wind className="w-8 h-8" />,
-      features: ['Weather Protection', 'Temporary Barriers', 'Structural Sealing', 'Durable Materials']
+      features: ['Weather Protection', 'Temporary Barriers', 'Structural Sealing', 'Durable Materials'],
+      gallery: [
+        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800',
+        'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800',
+        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
+        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800'
+      ]
     },
     {
       title: 'Pressure Washing',
       description: 'High-pressure deep cleaning services utilizing advanced equipment to eliminate accumulated dirt, mold, fungi, grease, and persistent stains. Ideal for enhancing appearance, hygiene, and longevity of both residential and commercial surfaces.',
       icon: <Sparkles className="w-8 h-8" />,
-      features: ['Deep Surface Cleaning', 'Mold & Mildew Removal', 'Facade Restoration', 'Commercial & Residential']
+      features: ['Deep Surface Cleaning', 'Mold & Mildew Removal', 'Facade Restoration', 'Commercial & Residential'],
+      gallery: [
+        'https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=800',
+        'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800',
+        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800'
+      ]
     },
     {
       title: 'Handyman Services',
       description: 'Comprehensive maintenance and repair solutions for residential and small commercial properties. Expert execution of plumbing repairs, light electrical work, painting, drywall, installations, and general maintenance to keep your property in optimal condition.',
       icon: <Wrench className="w-8 h-8" />,
-      features: ['Basic Plumbing', 'Light Electrical', 'Painting & Drywall', 'General Repairs']
+      features: ['Basic Plumbing', 'Light Electrical', 'Painting & Drywall', 'General Repairs'],
+      gallery: [
+        'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800',
+        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800'
+      ]
     }
   ];
 
@@ -60,12 +102,45 @@ const TigerProtectionWebsite = () => {
     setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
   };
 
+  const toggleGallery = (index) => {
+    setExpandedService(expandedService === index ? null : index);
+  };
+
+  const openLightbox = (imageUrl) => {
+    setLightboxImage(imageUrl);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white" style={{fontFamily: "'Inter', 'Segoe UI', sans-serif"}}>
       {/* Google Fonts Import */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
       `}</style>
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4"
+          onClick={closeLightbox}
+        >
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={lightboxImage}
+            alt="Gallery image"
+            className="max-w-full max-h-full object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       {/* Navigation */}
       <nav className="fixed w-full bg-black/90 backdrop-blur-sm z-50 border-b border-gray-800">
@@ -211,7 +286,7 @@ const TigerProtectionWebsite = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section with Gallery */}
       <section id="services" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4" style={{fontFamily: "'Playfair Display', serif"}}>
@@ -225,29 +300,73 @@ const TigerProtectionWebsite = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition transform hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/20 group"
-              >
-                <div className="text-blue-400 mb-4 group-hover:text-green-400 transition">
-                  {service.icon}
+              <div key={index} className="flex flex-col">
+                <div
+                  className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition transform hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/20 group flex-grow"
+                >
+                  <div className="text-blue-400 mb-4 group-hover:text-green-400 transition">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-white" style={{fontFamily: "'Playfair Display', serif"}}>
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="border-t border-gray-700 pt-4 mt-4 mb-4">
+                    <ul className="space-y-2">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="text-xs text-gray-500 flex items-center">
+                          <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* Gallery Toggle Button */}
+                  <button
+                    onClick={() => toggleGallery(index)}
+                    className="w-full mt-4 bg-gradient-to-r from-blue-500/20 to-green-500/20 hover:from-blue-500/30 hover:to-green-500/30 border border-blue-500/50 px-4 py-3 rounded-lg text-sm font-semibold transition flex items-center justify-center gap-2"
+                  >
+                    <ImageIcon className="w-4 h-4" />
+                    {expandedService === index ? 'Ocultar Galería' : 'Ver Trabajos Realizados'}
+                  </button>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white" style={{fontFamily: "'Playfair Display', serif"}}>
-                  {service.title}
-                </h3>
-                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-                <div className="border-t border-gray-700 pt-4 mt-4">
-                  <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="text-xs text-gray-500 flex items-center">
-                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+
+                {/* Expandable Gallery */}
+                {expandedService === index && (
+                  <div className="mt-4 bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 animate-in slide-in-from-top duration-300">
+                    <h4 className="text-lg font-bold mb-4 text-white flex items-center gap-2">
+                      <ImageIcon className="w-5 h-5 text-blue-400" />
+                      Galería de Trabajos
+                    </h4>
+                    <div className="grid grid-cols-3 gap-3">
+                      {service.gallery.map((image, imgIndex) => (
+                        <div
+                          key={imgIndex}
+                          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
+                          onClick={() => openLightbox(image)}
+                        >
+                          <img
+                            src={image}
+                            alt={`${service.title} - Trabajo ${imgIndex + 1}`}
+                            className="w-full h-full object-cover transition transform group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition flex items-center justify-center">
+                            <ImageIcon className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => toggleGallery(index)}
+                      className="w-full mt-4 text-gray-400 hover:text-white text-sm transition"
+                    >
+                      Cerrar Galería
+                    </button>
+                  </div>
+                )}
               </div>
             ))}
           </div>
