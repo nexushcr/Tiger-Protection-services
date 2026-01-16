@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Facebook, Instagram, ChevronLeft, ChevronRight, Droplets, Shield, Wind, Sparkles, Wrench } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, ChevronLeft, ChevronRight, Droplets, Shield, Wind, Sparkles, Wrench, Gift, PhoneCall } from 'lucide-react';
 
 const TigerProtectionWebsite = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -72,6 +72,12 @@ const TigerProtectionWebsite = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
+              {/* Logo */}
+              <img 
+                src="/logo.png" 
+                alt="Tiger Protection Services Logo" 
+                className="h-12 w-12 object-contain"
+              />
               <div className="text-2xl font-bold" style={{fontFamily: "'Playfair Display', serif"}}>
                 <span className="text-blue-400">TIGER</span>
                 <span className="text-green-400"> PROTECTION</span>
@@ -83,8 +89,9 @@ const TigerProtectionWebsite = () => {
               <a href="#gallery" className="hover:text-blue-400 transition">Gallery</a>
               <a href="#contact" className="hover:text-green-400 transition">Contact</a>
             </div>
-            <a href="tel:+17868212717" className="bg-gradient-to-r from-blue-500 to-green-500 px-6 py-2 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition">
-              Emergency Call
+            <a href="tel:+17868212717" className="bg-gradient-to-r from-blue-500 to-green-500 px-6 py-2 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition flex items-center gap-2">
+              <PhoneCall className="w-4 h-4" />
+              <span className="hidden sm:inline">Call Now</span>
             </a>
           </div>
         </div>
@@ -104,11 +111,19 @@ const TigerProtectionWebsite = () => {
               Professional Property Protection & Restoration Services in Tampa, FL
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#contact" className="bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105">
-                Get a Free Quote
-              </a>
-              <a href="tel:+17868212717" className="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105">
-                24/7 Emergency Service
+              {/* Free Inspection Button */}
+              <a 
+                href="#contact" 
+                className="group relative bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 px-10 py-5 rounded-xl text-xl font-semibold transition transform hover:scale-105 shadow-2xl shadow-green-500/40 hover:shadow-green-500/60 flex items-center gap-3"
+              >
+                <Gift className="w-7 h-7 animate-pulse" />
+                <div className="text-left">
+                  <div className="text-sm font-normal text-green-100">100% FREE</div>
+                  <div>Inspection & Quote</div>
+                </div>
+                <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full animate-bounce">
+                  FREE!
+                </div>
               </a>
             </div>
           </div>
@@ -286,18 +301,22 @@ const TigerProtectionWebsite = () => {
               </div>
             </div>
             
-            <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
-              <h3 className="text-2xl font-bold mb-4" style={{fontFamily: "'Playfair Display', serif"}}>
-                Need Emergency Service?
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                FREE INSPECTION
+              </div>
+              <h3 className="text-2xl font-bold mb-4 mt-4" style={{fontFamily: "'Playfair Display', serif"}}>
+                Get Your Free Quote Today!
               </h3>
               <p className="text-gray-400 mb-6 leading-relaxed">
                 Our certified team is available 24/7 to respond to your emergency. Contact us now for rapid response, professional service, and guaranteed results.
               </p>
               <a
                 href="tel:+17868212717"
-                className="block w-full bg-gradient-to-r from-blue-500 to-green-500 text-center py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition transform hover:scale-105 mb-4"
+                className="block w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-center py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-green-500/50 transition transform hover:scale-105 mb-4 flex items-center justify-center gap-2"
               >
-                Call Emergency Line Now
+                <Gift className="w-5 h-5" />
+                Get Free Inspection Now
               </a>
               <p className="text-sm text-center text-gray-500">
                 Free consultation • Licensed & Insured • Fast response
