@@ -236,7 +236,7 @@ const TigerProtectionWebsite = () => {
           <p className="text-center text-gray-400 mb-12 text-lg">
             Delivering excellence in property protection and restoration
           </p>
-          <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
             {carouselImages.map((image, index) => (
               <div
                 key={index}
@@ -247,7 +247,7 @@ const TigerProtectionWebsite = () => {
                 <img
                   src={image.url}
                   alt={image.alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain bg-gray-800"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
                 <div className="absolute bottom-8 left-8 right-8">
