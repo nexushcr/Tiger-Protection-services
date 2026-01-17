@@ -52,9 +52,6 @@ const TigerProtectionWebsite = () => {
         '/gallery/shrink-wrap/1.jpg',
         '/gallery/shrink-wrap/2.jpg',
         '/gallery/shrink-wrap/3.jpg',
-        '/gallery/shrink-wrap/4.jpg',
-        '/gallery/shrink-wrap/5.jpg',
-        '/gallery/shrink-wrap/6.jpg'
       ]
     },
     {
@@ -63,12 +60,7 @@ const TigerProtectionWebsite = () => {
       icon: <Sparkles className="w-8 h-8" />,
       features: ['Deep Surface Cleaning', 'Mold & Mildew Removal', 'Facade Restoration', 'Commercial & Residential'],
       gallery: [
-        '/gallery/pressure-washing/1.jpg',
-        '/gallery/pressure-washing/2.jpg',
-        '/gallery/pressure-washing/3.jpg',
-        '/gallery/pressure-washing/4.jpg',
-        '/gallery/pressure-washing/5.jpg',
-        '/gallery/pressure-washing/6.jpg'
+        
       ]
     },
     {
@@ -77,12 +69,7 @@ const TigerProtectionWebsite = () => {
       icon: <Wrench className="w-8 h-8" />,
       features: ['Basic Plumbing', 'Light Electrical', 'Painting & Drywall', 'General Repairs'],
       gallery: [
-        '/gallery/handyman/1.jpg',
-        '/gallery/handyman/2.jpg',
-        '/gallery/handyman/3.jpg',
-        '/gallery/handyman/4.jpg',
-        '/gallery/handyman/5.jpg',
-        '/gallery/handyman/6.jpg'
+        
       ]
     }
   ];
