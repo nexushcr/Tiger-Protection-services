@@ -6,12 +6,12 @@ const TigerProtectionWebsite = () => {
   const [expandedService, setExpandedService] = useState(null);
   const [lightboxImage, setLightboxImage] = useState(null);
   
-  // Placeholder images for carousel
+  // Carousel images
   const carouselImages = [
-    { url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200', alt: 'Water Damage Restoration - Emergency Response', caption: 'Water Damage Restoration' },
-    { url: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1200', alt: 'Mold Remediation Services', caption: 'Professional Mold Remediation' },
-    { url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200', alt: 'Shrink Wrap Protection', caption: 'Shrink Wrap Installation' },
-    { url: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200', alt: 'Pressure Washing Services', caption: 'High-Pressure Cleaning' }
+    { url: '/gallery/carousel/1.jpg', alt: 'Water Damage Restoration - Emergency Response', caption: 'Water Damage Restoration' },
+    { url: '/gallery/carousel/2.jpg', alt: 'Mold Remediation Services', caption: 'Professional Mold Remediation' },
+    { url: '/gallery/carousel/3.jpg', alt: 'Shrink Wrap Protection', caption: 'Shrink Wrap Installation' },
+    { url: '/gallery/carousel/4.jpg', alt: 'Pressure Washing Services', caption: 'High-Pressure Cleaning' }
   ];
 
   const services = [
@@ -21,12 +21,12 @@ const TigerProtectionWebsite = () => {
       icon: <Droplets className="w-8 h-8" />,
       features: ['Emergency Dry-Out', 'Tarp Installation', 'Storm Damage Response', '24/7 Availability'],
       gallery: [
-        'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800',
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
-        'https://images.unsplash.com/photo-1595814433015-e12f91f8c48e?w=800',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
-        'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
-        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800'
+        '/gallery/water-damage/1.jpg',
+        '/gallery/water-damage/2.jpg',
+        '/gallery/water-damage/3.jpg',
+        '/gallery/water-damage/4.jpg',
+        '/gallery/water-damage/5.jpg',
+        '/gallery/water-damage/6.jpg'
       ]
     },
     {
@@ -35,12 +35,12 @@ const TigerProtectionWebsite = () => {
       icon: <Shield className="w-8 h-8" />,
       features: ['Mold Identification', 'Safe Removal', 'Deep Sanitization', 'Preventive Treatment'],
       gallery: [
-        'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800',
-        'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800',
-        'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800',
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
-        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800'
+        '/gallery/mold-remediation/1.jpg',
+        '/gallery/mold-remediation/2.jpg',
+        '/gallery/mold-remediation/3.jpg',
+        '/gallery/mold-remediation/4.jpg',
+        '/gallery/mold-remediation/5.jpg',
+        '/gallery/mold-remediation/6.jpg'
       ]
     },
     {
@@ -49,12 +49,12 @@ const TigerProtectionWebsite = () => {
       icon: <Wind className="w-8 h-8" />,
       features: ['Weather Protection', 'Temporary Barriers', 'Structural Sealing', 'Durable Materials'],
       gallery: [
-        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800',
-        'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800',
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
-        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
-        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800'
+        '/gallery/shrink-wrap/1.jpg',
+        '/gallery/shrink-wrap/2.jpg',
+        '/gallery/shrink-wrap/3.jpg',
+        '/gallery/shrink-wrap/4.jpg',
+        '/gallery/shrink-wrap/5.jpg',
+        '/gallery/shrink-wrap/6.jpg'
       ]
     },
     {
@@ -63,12 +63,12 @@ const TigerProtectionWebsite = () => {
       icon: <Sparkles className="w-8 h-8" />,
       features: ['Deep Surface Cleaning', 'Mold & Mildew Removal', 'Facade Restoration', 'Commercial & Residential'],
       gallery: [
-        'https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=800',
-        'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800',
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
-        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800'
+        '/gallery/pressure-washing/1.jpg',
+        '/gallery/pressure-washing/2.jpg',
+        '/gallery/pressure-washing/3.jpg',
+        '/gallery/pressure-washing/4.jpg',
+        '/gallery/pressure-washing/5.jpg',
+        '/gallery/pressure-washing/6.jpg'
       ]
     },
     {
@@ -77,12 +77,12 @@ const TigerProtectionWebsite = () => {
       icon: <Wrench className="w-8 h-8" />,
       features: ['Basic Plumbing', 'Light Electrical', 'Painting & Drywall', 'General Repairs'],
       gallery: [
-        'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800',
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
-        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800',
-        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800'
+        '/gallery/handyman/1.jpg',
+        '/gallery/handyman/2.jpg',
+        '/gallery/handyman/3.jpg',
+        '/gallery/handyman/4.jpg',
+        '/gallery/handyman/5.jpg',
+        '/gallery/handyman/6.jpg'
       ]
     }
   ];
