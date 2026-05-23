@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Facebook, Instagram, ChevronLeft, ChevronRight, Droplets, Shield, Wind, Sparkles, Wrench, Gift, PhoneCall, X, Image as ImageIcon } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 const TigerProtectionWebsite = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -470,6 +471,7 @@ const TigerProtectionWebsite = () => {
           </div>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 };
