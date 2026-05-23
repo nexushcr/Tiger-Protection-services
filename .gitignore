@@ -28,3 +28,4 @@ openJdk-25.jdk
 # Logs
 *.log
 npm-debug.log*node_modules/
+node_modules/
